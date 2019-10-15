@@ -1,6 +1,9 @@
-# MykeyFirstApp
+# Spotify2Lyrics
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.8.
+This project is mostly a sandbox for me to learn Angular.
+The idea is to use Spotify's API to get a client's currently playing song, along with the ms progress in the song. With that information, I can get a lyrics stream from the Musixmatch API and match it with the current place in the song.
+Probably won't work that well... But it's educational!
 
 ## Development server
 
