@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SpotifyService, SpotifyPlayerResp, Artist } from 'src/app/spotify.service';
+import { BehaviorSubject } from 'rxjs';
+import { RespService } from 'src/app/resp.service';
 
 @Component({
   selector: 'app-after-login',
@@ -8,10 +10,14 @@ import { SpotifyService, SpotifyPlayerResp, Artist } from 'src/app/spotify.servi
   styleUrls: ['./after-login.component.css']
 })
 export class AfterLoginComponent implements OnInit {
-  token: string;
+  private token: string;
   resp: SpotifyPlayerResp;
+  observableResp: BehaviorSubject<SpotifyPlayerResp>;
 
-  constructor(private route: ActivatedRoute, private spotify: SpotifyService) { }
+  constructor(private route: ActivatedRoute, private spotify: SpotifyService,
+              private respService: RespService) {
+    this.observableResp = new BehaviorSubject<SpotifyPlayerResp>(this.resp);
+   }
 
   ngOnInit() {
     this.route.fragment.subscribe((fragment: string) =>
@@ -21,8 +27,13 @@ export class AfterLoginComponent implements OnInit {
   spotifyGetCurr() {
     this.spotify.getCurrPlaying(this.token).subscribe(
       data => {this.resp = this.mapToRespObject(data.body);
-               console.log(this.resp); }
+               console.log(this.resp);
+               this.respChange(); }
     );
+  }
+
+  respChange() {
+    this.respService.sendResp(this.resp);
   }
 
   parseAccessToken(token: string) {

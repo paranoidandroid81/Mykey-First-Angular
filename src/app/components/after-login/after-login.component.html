@@ -1,7 +1,14 @@
 <div class="jumbotron content-area">
-    <h1>Sync Your Music</h1>
-    <p></p>
-    <p>
-      <button (click)="spotifyGetCurr()" class="btn btn-raised btn-primary">Get Current Playing Song</button>
-    </p>
+  <div class="row">
+    <div class="col">
+      <h1>Sync Your Music</h1>
+      <p></p>
+      <p>
+        <button (click)="spotifyGetCurr()" class="btn btn-raised btn-primary">Get Current Playing Song</button>
+      </p>
+    </div>
+    <div class = "col">
+      <app-curr-playing></app-curr-playing>
+    </div>
   </div>
+</div>

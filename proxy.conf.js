@@ -11,6 +11,8 @@ const PROXY_CONFIG = {
       //console.log(`req: ${JSON.stringify(req)}`);
       console.log(`proxyReq: ${proxyReq.getHeader('Authorization')}`);
       //proxyReq.setHeader('Authorization', req.headers['Authorization']);
+    },
+    "onProxyRes": function(proxyRes, req, res){
     }
   }
 }

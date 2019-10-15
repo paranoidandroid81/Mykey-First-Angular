@@ -9,6 +9,8 @@ import { SpotifyService } from './spotify.service';
 import { HeaderComponent } from './components/header/header.component';
 import { MainAreaComponent } from './components/main-area/main-area.component';
 import { AfterLoginComponent } from './components/after-login/after-login.component';
+import { CurrPlayingComponent } from './components/curr-playing/curr-playing.component';
+import { RespService } from './resp.service';
 
 @NgModule({
   declarations: [
@@ -16,14 +18,15 @@ import { AfterLoginComponent } from './components/after-login/after-login.compon
     MykeyComponent,
     HeaderComponent,
     MainAreaComponent,
-    AfterLoginComponent
+    AfterLoginComponent,
+    CurrPlayingComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [SpotifyService],
+  providers: [SpotifyService, RespService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

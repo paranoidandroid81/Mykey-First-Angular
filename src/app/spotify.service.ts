@@ -1,6 +1,5 @@
 import { HttpClient, HttpResponse, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Injectable, Inject } from '@angular/core';
-import { Observable } from 'rxjs';
 
 @Injectable()
 export class SpotifyService {
